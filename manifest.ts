@@ -1,5 +1,7 @@
 import { Manifest } from "deno-slack-sdk/mod.ts";
 import { servicecloudCreateDefinition } from "./functions/servicecloud_create.ts";
+import { salesforceQueryDefinition } from "./functions/salesforce_query.ts";
+import { salesforceAssociateChannelDefinition } from "./functions/salesforce_associate.ts";
 
 /**
  * The app manifest contains the app's configuration. This
@@ -7,10 +9,14 @@ import { servicecloudCreateDefinition } from "./functions/servicecloud_create.ts
  * https://api.slack.com/future/manifest
  */
 export default Manifest({
-  name: "Service Cloud",
-  description: "Demo functions for Service Cloud",
+  name: "Salesforce",
+  description: "Demo functions for Salesforce",
   icon: "assets/salesforce.png",
-  functions: [servicecloudCreateDefinition],
+  functions: [
+    servicecloudCreateDefinition,
+    salesforceQueryDefinition,
+    salesforceAssociateChannelDefinition,
+  ],
   outgoingDomains: [],
   botScopes: ["commands", "chat:write", "chat:write.public"],
 });
